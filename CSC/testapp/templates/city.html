@@ -1,0 +1,16 @@
+{% if cities|length == 0 %}
+<tr>
+  <td class="border px-4 py-2">
+    <span class="inline-block bg-gray-200 rounded-full px-3 text-sm font-semibold text-gray-700">No Data Found</span>
+  </td>
+</tr>
+{% endif %}
+{%for city in cities%}
+    {% with cityId=city.1 %}
+    <tr>
+        <td class="border px-4 py-2">
+            {{city.0}} <button class="tooltip inline-block align-middle float-right" onclick="toggleModal(52, 'cities')"><svg viewBox="0 0 20 20" fill="currentColor" class="information-circle w-6 h-6 text-blue-600"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg><span class="tooltip-text bg-indigo-600 rounded text-white text-sm -mt-12"></span></button>
+        </td>
+    </tr>
+    {% endwith %}
+{%endfor%}
